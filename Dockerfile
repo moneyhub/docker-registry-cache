@@ -4,7 +4,7 @@ RUN apt-get update && apt-get -y install apt-utils curl && curl -fsSL https://ge
 
 ADD package.json /opt/app/package.json
 ADD src /opt/app/src
-RUN cd /opt/app && npm install --production 
+RUN cd /opt/app && npm install --production
 
 WORKDIR /opt/app
 

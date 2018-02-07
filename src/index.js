@@ -10,7 +10,6 @@ const localRegistry = process.env.LOCAL_REGISTRY
 if (!localRegistry || !registry) throw new Error("LOCAL_REGISTRY or SOURCE_REGISTRY environment variable not set!")
 
 const execP = promisify(exec)
- 
 const app = express()
 
 process.on("unhandledRejection", err => console.log(err.stack || err.message))
