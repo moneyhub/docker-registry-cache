@@ -1,0 +1,28 @@
+version: "2"
+services:
+  syncer:
+    build: .
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - "./repos.json:/var/lib/sync/repos.json"
+      - "~/.docker/:/root/.docker/"
+      - "/usr/bin/docker:/bin/docker"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    environment:
+      - LOCAL_REGISTRY=LOCAL_REGISTRY_ADDRESS:5000
+      - SOURCE_REGISTRY=SOURCE_REGISTRY_ADDRESS
+    depends_on:
+      - "registry"
+  registry:
+    image: registry:2
+    restart: always
+    ports:
+      - "5000:5000"
+    volumes:
+      - "./certs:/certs"
+      - "./data:/var/lib/registry"
+    environment:
+      - REGISTRY_HTTP_TLS_CERTIFICATE=/certs/domain.crt 
+      - REGISTRY_HTTP_TLS_KEY=/certs/domain.key 

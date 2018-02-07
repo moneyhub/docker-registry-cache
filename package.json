@@ -1,0 +1,21 @@
+{
+  "version": "1.0.0",
+  "description": "Used for syncing images to the local registry in the office",
+  "main": "src/index.js",
+  "scripts": {
+    "start-watch": "nodemon --exitcrash --ignore repos.json ."
+  },
+  "engines": {
+    "node": "^8.0.0"
+  },
+  "author": "Moneyhub Financial Technology",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^1.9.2"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "moment": "^2.14.1"
+  }
+}
