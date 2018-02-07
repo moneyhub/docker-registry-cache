@@ -11,7 +11,7 @@ Local docker registry cache
 
 ## Installation
 
-Just run ./setup.sh
+Just run `./setup.sh`
 
 ## License
 
