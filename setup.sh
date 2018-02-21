@@ -18,9 +18,9 @@ cp certs/ssl_template.cnf certs/ssl.cnf
 cp docker-compose_template.yml docker-compose.yml
 
 if [[ $LOCAL_REGISTRY =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-    sed -i s/LOCAL_REGISTRY_PLACEHOLDER/IP\.1\ =\ $LOCAL_REGISTRY/ certs/ssl.cnf
+    sed -i s/REGISTRY_NAME_PLACEHOLDER/IP\.1\ =\ $LOCAL_REGISTRY/ certs/ssl.cnf
 else
-    sed -i s/LOCAL_REGISTRY_PLACEHOLDER/DNS\.1\ =\ $LOCAL_REGISTRY/ certs/ssl.cnf
+    sed -i s/REGISTRY_NAME_PLACEHOLDER/DNS\.1\ =\ $LOCAL_REGISTRY/ certs/ssl.cnf
 fi
     sed -i s/LOCAL_REGISTRY_ADDRESS/$LOCAL_REGISTRY/ docker-compose.yml
     sed -i s/SOURCE_REGISTRY_ADDRESS/$SOURCE_REGISTRY/ docker-compose.yml
