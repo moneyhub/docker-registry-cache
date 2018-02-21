@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Used for syncing images to the local registry in the office",
   "main": "src/index.js",
   "scripts": {
