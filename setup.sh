@@ -25,7 +25,7 @@ fi
     sed -i s/LOCAL_REGISTRY_ADDRESS/$LOCAL_REGISTRY/ docker-compose.yml
     sed -i s/SOURCE_REGISTRY_ADDRESS/$SOURCE_REGISTRY/ docker-compose.yml
 
-openssl req  -newkey rsa:2048 -nodes -sha256  -subj "/CN=local-registry" -keyout certs/domain.key -x509 -out certs/domain.crt -extensions v3_req -config certs/ssl.cnf
+openssl req  -newkey rsa:2048 -nodes -days 365 -sha256  -subj "/CN=local-registry" -keyout certs/domain.key -x509 -out certs/domain.crt -extensions v3_req -config certs/ssl.cnf
 rm certs/ssl.cnf
 
 sudo mkdir -p /etc/docker/certs.d/$LOCAL_REGISTRY:5000
